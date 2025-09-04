@@ -1,0 +1,89 @@
+
+We will write a web application called "Observation Journal",
+that will allow users to keep a register of interesting topics 
+and make entries. The main page of the Observation Log will contain 
+a description of the site and user registration/authorization. 
+After authorization, the user will be able to create topics, add new entries, 
+and read and edit old ones.
+
+
+
+git add .
+git commit -m "Django - Observation Journal"
+git push
+
+git add API
+git commit -m "Django - Observation Journal"
+git push
+
+git add API
+git commit -m "Django - Observation Journal" --date="2025-08-30 14:31:45"
+git push
+
+
+#Django start
+python -m venv ll_env
+source ll_env/bin/activate
+deactivate (or close the terminal)
+django-admin startproject learnining_log .
+ls
+ls learning_log
+
+python manage.py migrate
+python manage.py runserver
+python manage.py runserver 8001 (if port already in use)
+
+python manage.py startapp learning_logs
+
+Cycle:
+python manage.py makemigrations learning_logs
+python manage.py migrate
+
+python manage.py createsuperuser
+ll_admin
+
+
+
+
+
+http://127.0.0.1:8000/admin/
+
+ll_admin
+vlad2008
+
+python manage.py shell
+from learning_logs.models import Topic
+Topic.objects.all()
+
+topics = Topic.objects.all()
+for topic in topics:
+    print(topic.id, topic)
+
+
+t = Topic.objects.get(id=1)
+t.text
+t.date_added
+t.entry_set.all()
+
+
+
+#python manage.py shell (ctrl+d to exit shell)
+#from django.contrib.auth.models import User
+#u = User.objects.get(username="vladshutkevych@gmail.com")
+#print(u.is_staff, u.is_superuser, u.is_active)
+
+
+
+
+settings.py controls Django interaction with my system 
+urls.py describes the mapping between URL patterns and views
+wsgi.py helps to interact with my files (web server gateaway interface)
+
+
+
+
+
+
+
+
+https://docs.djangoproject.com/en/5.2/ref/models/fields/
