@@ -1,4 +1,36 @@
+
+
 {% extends "learning_logs/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+<h2>Log in to your account</h2>
+{% endblock page_header %}
+
+{% block content %}
+    <form method="post" action="{% url 'users:login' %}" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+        <button name="submit" class="btn btn-primary">Log in</button>
+        {% endbuttons %}
+        
+        <input type="hidden" name="next"
+                value="{% url 'learning_logs:index' %}"/>
+    </form>
+    
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends "learning_logs/base.html" %}
 {% block content %}
 
   {% if form.errors %}
@@ -14,4 +46,8 @@
                 value="{% url 'learning_logs:index' %}">
     </form>
     
-{% endblock content %}
+{% endblock content %} {% endcomment %}
+
+
+
+
